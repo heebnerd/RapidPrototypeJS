@@ -1,5 +1,6 @@
 $("<style type='text/css'> .everything-draggable{ position: absolute}  </style>").appendTo("head");
 $("<style type='text/css'> .ui-draggable-disabled{ opacity: 1} </style>").appendTo("head");
+$("<style type='text/css'> .snap-x-marker {width: 2px; background-color: green; height: 100%; top: 0px; position: absolute }</style>").appendTo("head");
 
 var draggableSelector;
 var resizableSelector;
@@ -19,7 +20,13 @@ $(document).ready(function(){
   	
 	var handler = function(e) {
 		$(draggableSelector).draggable({
-			disabled: !e.shiftKey
+			disabled: !e.shiftKey,
+			stop: function(){
+				$(draggableSelector).each(function() {
+					$(".snap-x-marker").remove();
+					$("body").append("<div class='snap-x-marker' style='left: " + $(this).position().left + "px'></div>");
+				});
+			}
 		});
 
 	    if (!e.shiftKey) {
