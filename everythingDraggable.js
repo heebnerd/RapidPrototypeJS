@@ -3,19 +3,19 @@ $("<style type='text/css'> .ui-draggable-disabled{ opacity: 1} </style>").append
 
 var draggableSelector;
 var resizableSelector;
-$(function(everythingDraggable, $, undefined){
+$(document).ready(function(everythingDraggable, $, undefined){
 	everythingDraggable.Selector = function(s){
 		draggableSelector = s;
 	}
 }( window.everythingDraggable = window.everythingDraggable || {}, jQuery ));
 
-$(function(everythingResizeable, $, undefined){
+$(document).ready(function(everythingResizeable, $, undefined){
 	everythingResizeable.Selector = function(s){
 		resizableSelector = s;
 	}
 }( window.everythingResizable = window.everythingResizable || {}, jQuery ));
 
-$(function(){
+$(document).ready(function(){
   	
 	var handler = function(e) {
 		$(draggableSelector).draggable({
@@ -35,18 +35,18 @@ $(function(){
 	$(document).keyup(handler);
 });
 
-/*$(function(){
+$(document).ready(function(){
 	var handler = function(e) {
 		$(resizableSelector).resizable({
 			disabled: !e.altKey
 		});
 
 
-		//if(e.altKey){
-		//	$(resizableSelector).resizable();
-		//} else {
-		//	$(resizableSelector).resizable('disable');
-		//}
+		/*if(e.altKey){
+			$(resizableSelector).resizable();
+		} else {
+			$(resizableSelector).resizable('disable');
+		}*/
 
 	    if (!e.altKey) {
 	        $(resizableSelector).removeClass("ui-resizable-disabled ui-state-disabled everything-draggable");
@@ -57,4 +57,4 @@ $(function(){
 
 	$(document).keydown(handler);
 	$(document).keyup(handler);
-});*/
+});

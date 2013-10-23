@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+	#red {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+
+	#blue {
+		width: 150px;
+		height: 100px;
+		background-color: blue;
+		position: absolute;
+		left: 200px;
+	}
+
+	body{
+		margin: 0px;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="../everythingDraggable.js"></script>
+</head>
+<body>
+<div id="red"></div>
+<div id="blue"></div>
+
+<script>
+	everythingDraggable.Selector("div");
+	everythingResizable.Selector("div");
+</script>
+</body>
+</html>
